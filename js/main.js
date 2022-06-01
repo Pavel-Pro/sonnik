@@ -11,6 +11,6 @@ $(document).ready(function() {
 	//     slidesToShow: 1,
 	//     dots: true    
 	// });
-	$('.main__sonnik').animate({left: "0px" },1200,"linear");
+	$('.main__sonnik').delay(1500).animate({left: "0px" },1200,"linear");
 });
 
