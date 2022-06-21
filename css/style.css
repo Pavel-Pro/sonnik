@@ -65,16 +65,17 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: inherit;
 }
 .menu__item + .menu__item {
-	margin-left: 1.875em;
+	margin-left: 1.8em;
 }
 .menu__link {
 	text-decoration: none;
 	color: rgb(0, 0, 0);
 	font-size: 1rem;
 	font-family: "RobotoSlab Regular";
-	line-height: 21;
+	vertical-align: middle;
 }
 .burger {
 	display: none;
@@ -108,6 +109,8 @@ html {
 .main__sonnik {
 	left: -900px;
 	position: relative;
+	width: 463px;
+	height: 293px;
 }
 .button__inner {
 	margin-top: 2em;
@@ -153,11 +156,11 @@ html {
 .solution__title:before {
 	content: "";
 	position: absolute;
-    bottom: 0px;
-    left: 370px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,25%);
 	width: 334px;
     height: 170px;
-    transform: translate(30px,30px);
 	background: url(../images/solution-cloud.png) no-repeat;
 	z-index: -1;
 }
@@ -184,8 +187,14 @@ html {
 	font-size: 1.25rem;
 }
 .middle__bg {
-	background: url(../images/middle__bg.png) center center / 100% 100%;
-	height: 3474px;
+	background: url(../images/middle__bg.png) 
+				center center / cover no-repeat,
+				url(../images/why__bg.png) 
+				center 60% / contain no-repeat;
+	background-blend-mode: soft-light;
+	height: 100%;
+	border-bottom-right-radius: 100px;
+	border-bottom-left-radius: 100px;
 }
 .advantage {
 	padding-top: 20em;
@@ -250,7 +259,7 @@ html {
     transform: translate(0,-10px) rotate(90deg);
 }
 .why {
-	margin-top: 45em;
+	margin-top: 40em;
 }
 .why__inner {
 	margin-bottom: 5em;
@@ -275,6 +284,10 @@ html {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+.sonnik {
+	width: 463px;
+	height: 293px;
 }
 .why__list {
 	list-style: none;
@@ -312,17 +325,39 @@ html {
 	text-align: center;
 }
 .why__btn:after {
-	left: 600px;
+	left: 53%;
     transform: translate(80px,65px);
 }
 .info {
-	margin-top: 7.5em;
+	padding: 7.5em 1em 3em;
+}
+.info__text {
+	margin-bottom: 2em;
 	text-align: center;
 	color: rgb(49, 53, 94);
 	font-family: "RobotoSlab Regular";
 	font-size: 1.25rem;
 	max-width: 1028px;
 	width: 100%;
+}
+.info__title {
+	font-family: "RobotoSlab Bold";
+	font-size: 2rem;
+	color: rgb(49, 53, 94);
+	margin-bottom: 1em;
+	text-align: center;
+}
+.list__title {
+	display: block;
+	font-family: "RobotoSlab Bold";
+	font-size: 1.2rem;
+	color: rgb(49, 53, 94);
+	margin-bottom: 0.5em;
+}
+.info__list {
+	list-style-position: inside;
+	margin-bottom: 2em;
+	color: rgb(49, 53, 94);
 }
 .where-buy {
 	padding: 5em 0 2em;
@@ -335,6 +370,13 @@ html {
 	height: 200px;
 	text-align: center;
 	background: url(../images/solution-cloud.png) center center / contain no-repeat;
+}
+.where-buy__btn {
+	text-align: center;
+}
+.where-buy__btn:after {
+	left: 53%;
+    transform: translate(80px,65px);
 }
 .where-buy__icon {
 	width: 50px;
@@ -369,4 +411,418 @@ html {
 	color: rgb(0, 0, 0);
 	font-size: 1rem;
 	font-family: "RobotoSlab Regular";
+}
+@media (max-width: 1160px) {
+	.header {
+	    justify-content: space-between;
+	    padding: 0em 1em;
+	    box-sizing: border-box;
+	}
+	.menu__item + .menu__item {
+	    margin-left: 1.4em;
+	}
+	.social {
+		flex-basis: 10%;
+		display: flex;
+		justify-content: flex-end;
+	}
+	.social__icon {
+	    height: 32px;
+	    width: 32px;
+	}
+	.social__link + .social__link {
+	    margin-left: 0.7em;
+	}
+	.main__inner {
+	    padding-left: 1em;
+	}
+	.solution__item {
+	    flex: 1 1 50%;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	}
+	.solution__item:nth-child(n+4) {
+	    margin-top: 0;
+	}
+	.solution__item:nth-child(n+3) {
+		margin-top: 3em;
+	}
+	.list__text:after {   
+	    width: 120px;
+	}
+}
+@media (max-width: 1024px) {
+	.header {
+		left: 0;
+    	transform: translate(0,0);
+    	transition: 0.3s;
+	}
+	.header__bg {
+		background: rgb(239, 239, 239);
+		border-radius: 0 0 0 0;
+	}
+	.nav {
+	    order: 3;
+	    position: relative;
+	}
+	.menu {
+		display: none;
+		position: absolute;
+		top: 60px;
+		right: -1em;
+		width: 100vw;
+		background: rgb(239, 239, 239);
+		padding: 3em 0;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
+	}
+	.menu__item {
+		height: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.menu__item + .menu__item {
+	    margin-left: 0;
+	}
+	.menu__link {
+	    font-size: 1.4rem;
+	}
+	.burger {
+		display: flex;
+	    height: 20px;
+	    width: 40px;
+	    flex-direction: column;
+	    justify-content: space-between;
+	}
+	.burger__item {
+		height: 3px;
+		width: 100%;
+		background: rgb(49, 53, 94);
+		cursor: pointer;
+		transition: 0.3s;
+	}
+	.burger__item:last-child {
+		width: 50%;
+		margin-left: auto;
+	}
+	.burger.open .burger__item:nth-child(1) {
+    	transform: rotate(130deg) translate(12px,0px);
+	}
+	.burger.open .burger__item:nth-child(2) {
+	    opacity: 0;
+	    right: -60px;
+	}
+	.burger.open .burger__item:nth-child(3) {
+    	transform: rotate(-130deg) translate(9px,0px);
+	    width: 100%;
+	}
+	.social {
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%,0);
+	}
+	.advantage__img {
+	    width: 304px;
+	    height: 296px;
+	    position: absolute;
+	    top: -50px;
+	    left: 10px;
+	    transform: translate(0, -80px);
+	}
+	.why {
+	    margin-top: 30em;
+	}
+	.why__info {
+	    padding: 0 1em;
+	}
+	.why__list {
+	    padding-right: 0;
+	}
+	.info {
+	    margin-top: 5em;
+	    width: 100%; 
+	    padding: 1.25em;
+	    box-sizing: border-box;
+	}
+}
+@media (max-width: 910px) {
+	.advantage__img {
+	    width: 304px;
+	    height: 296px;
+	    position: relative;
+	    top: 0;
+	    left: 0;
+	    transform: translate(0, 0);
+	}
+	.advantage__item:nth-child(even) .advantage__img {
+	    top: 0;
+	    left: 0;
+	    transform: translate(0, 0);
+	}
+	.advantage__text:before {
+	    display: none;
+	}
+	.advantage__items {
+	    padding-top: 5em;
+	}
+	.advantage__item + .advantage__item {
+	    margin-top: 1.5em;
+	}
+	.middle__bg {
+	    height: 100%;
+	}
+	.info {
+	    padding: 1.25em;
+	    padding-bottom: 3em;
+	}
+	.list__text:after {
+	    display: none;
+	}
+	.where-buy__btn:after {
+	    left: 53%;
+	    transform: translate(90px,65px);
+	}
+	.footer {	  
+	    height: 100%;
+
+	}
+	.footer__inner {
+	    max-width: 1300px;
+	    width: 100%;
+	    justify-content: center;
+	    flex-direction: column;
+	    align-items: center;
+	    padding: 2em 0;
+	}
+	.footer-menu {
+		display: flex;
+		position: relative;
+		top: 0;
+	    right: 0;
+	    width: auto;
+	    background: transparent;
+	    flex-direction: column;
+	    padding: 1em 0 0 0;
+	}
+	.footer-menu__item + .footer-menu__item {
+	    margin-left: 0;
+	}
+	.footer-menu__item + .footer-menu__item  {
+		margin-top: 1em;
+	}
+	.footer-menu__link {
+	    color: rgb(49, 53, 94);
+	}
+
+}
+@media (max-width: 690px) {
+	.display-none {
+		display: none;
+	}
+	nav {
+		margin-left: auto;
+	}
+	.social {
+		display: none;
+	}	
+	.display-block {
+		display: block;
+	}
+	.social__icon {
+	    height: 40px;
+	    width: 40px;
+	}
+	.main__title {
+	    font-size: 4rem;
+	    width: 100%;
+	    text-align: center;
+	    margin-bottom: 2.5em;
+	}
+	.main {
+	    background: url(../images/main_bg-mobile.png) 
+	                    center center / cover no-repeat;
+	    height: 85vh;
+	}
+	.main__sonnik {
+	    width: auto;
+	    height: auto;
+	}
+	.button__inner {
+	    position: absolute;
+	    top: 100%;
+	    left: 50%;
+	    transform: translate(-50%,150%);
+	    margin-top: 2em;
+	    margin: 0 auto;
+	}
+	.button__inner:after {
+	    content: "";
+	    position: absolute;
+	    top: 0;
+	    left: 80px;
+	    transform: translate(80px,-85px);
+	    width: 130px;
+	    height: 214px;
+	    background: url(../images/moon-mobile.png.svg) 
+	    			center center / cover no-repeat;
+	}
+	.main__btn {
+	    padding: 1em 2em;
+	    font-size: 1.3rem;
+	    border-radius: 30px;
+	}
+	.solution__title {
+	    margin-top: 5em;
+	    padding: 0 0.5em;
+	}
+	.middle__bg {
+	    	background: url(../images/middle__bg.png) 
+				center center / cover no-repeat,
+				url(../images/why-mobile__bg.png) 
+				center 62% / contain no-repeat;
+	background-blend-mode: soft-light;
+	}
+	.advantage__item {
+	    flex-direction: column;
+	    justify-content: center;
+	}
+	.advantage__item + .advantage__item {
+	    margin-top: 3.75em;
+	}
+	.advantage__item:nth-child(even) .advantage__text {
+	    order: 1;
+	}
+	.advantage__text {
+		margin-top: 0.5em;
+	}
+	.why {
+	    margin-top: 15em;
+	}
+	.why__text {
+	    padding: 0 1em;
+	}
+	.why__title {
+	    padding: 0 1em;
+	}
+	.why__info {
+		flex-direction: column;
+	    justify-content: space-between;
+	    align-items: center;
+	}
+	.sonnik {
+		margin-bottom: 5em;
+		width: 80%;
+		height: 80%;
+	}
+	.list__text {
+	    text-align: center;
+	}
+	.list__text + .list__text {
+		margin-top: 1em;
+	}
+	.list__text:before {
+	    display: none;
+	}
+	.why__btn {
+		position: relative;
+	}
+	.why__btn:after {
+	    bottom: 0px;
+	    left: 46%;
+	    transform: translate(80px,-90px);
+	}
+	.info {
+	    margin-top: 8em;
+	}
+	.where-buy__btn {
+		position: relative
+	}
+	.where-buy__btn:after {
+	    position: absolute;
+	    left: 50%;
+	    transform: translate(60px,-90px);
+	}
+	.where-buy__social {
+	    margin-top: 7em;
+	}
+	.footer-nav {
+	    margin-left: 0; 
+	}
+}
+@media (max-width: 550px) {
+	.button__inner:after {
+	    transform: translate(65px,-85px);
+	    width: 120px;
+	    height: 202px;
+    }
+	.solution__items {
+	    flex-direction: column;
+	}
+	.solution__item {
+	    margin-top: 2em;
+	}
+	.solution__item:nth-child(n+3) {
+		margin-top: 2em;
+	}
+	.middle__bg {
+	    background: url(../images/middle__bg.png) 
+	    				center center / cover no-repeat, 
+	    			url(../images/why-mobile__bg.png) 
+	    			center 58% / contain no-repeat;
+	    background-blend-mode: soft-light;
+	}
+	.why {
+	    margin-top: 10em;
+	}
+	.why__title {
+	    font-size: 4rem;
+	    line-height: 1.2;
+	}
+	.why__btn:after {
+	    transform: translate(87px,-80px);
+	}
+	.where-buy__btn:after {
+	    transform: translate(90px,-80px);
+	}
+}
+@media (max-width: 450px) {
+	.main__title {
+	    margin-bottom: 1.5em;
+	}
+		.middle__bg {
+	    background: url(../images/middle__bg.png) 
+	    				center center / cover no-repeat, 
+	    			url(../images/why-mobile__bg.png) 
+	    			center 56% / contain no-repeat;
+	    background-blend-mode: soft-light;
+	}
+	.button__inner:after {
+	    left: 40%;
+	}
+}
+@media (max-width: 370px) {
+	.main__title {
+	    font-size: 3rem;
+	}
+	.button__inner:after {
+	    display: none;
+	}
+	.solution__title:before {
+	    content: "";
+	    position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    transform: translate(0,0);
+	    width: 100%;
+	    height: 100%;
+	    background: url(../images/solution-cloud.png)center center / no-repeat;
+	    z-index: -1;
+	}
+	.why__title {
+	    font-size: 3.5rem;
+	    line-height: 1.2;
+	}
 }
